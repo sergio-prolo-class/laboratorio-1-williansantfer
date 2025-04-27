@@ -4,11 +4,59 @@
 package ifsc.poo;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        // Lampada
+
+        Lampada a = new Lampada();
+        Lampada b = new Lampada(true);
+
+        System.out.println(a.verEstado());
+        System.out.println(b.verEstado());
+
+        b.desligar();
+
+        System.out.println(b.verEstado());
+
+        // Pessoa
+
+        Pessoa p = new Pessoa("Alice", 22);
+
+        Pessoa p2 = new Pessoa("Bruno", 25);
+
+        p2.felizAniversario();
+        p2.felizAniversario();
+        p2.felizAniversario();
+
+        System.out.println(p.getIdade());
+        System.out.println(p2.getIdade());
+
+        p.setIdade(-44);
+
+        System.out.println(p.getIdade());
+
+        p2.setNome("         ");
+
+        System.out.println(p2.getNome());
+
+        Pessoa p3 = new Pessoa("", 15);
+
+        System.out.println(p3.getNome());
+
+        // Retangulo
+
+        Retangulo r = new Retangulo( 5, 4);
+
+        System.out.println(r.getArea());
+        System.out.println(r.getPerimetro());
+
+        Retangulo r3 = new Retangulo(5, 5);
+
+        Retangulo r2 = new Retangulo(3,3);
+
+        System.out.println(Retangulo.imprimirRetanguloMaiorRazao());
+
     }
+
 }
