@@ -9,9 +9,9 @@ public class Retangulo {
     private static float LARGURA_MAIOR_RAZAO = 0;
     private static float ALTURA_MAIOR_RAZAO = 0;
 
-    public Retangulo(int largura, int altura) {
+    public Retangulo(float largura, float altura) {
 
-        if (largura <= 0 ||  altura <= 0) {
+        if (largura < 0 ||  altura < 0) {
             this.largura = 1;
             this.altura = 1;
         } else {
@@ -19,13 +19,7 @@ public class Retangulo {
             this.altura = altura;
         }
 
-        razaoAreaPerimetro = getArea() / getPerimetro();
-
-        if (razaoAreaPerimetro > MAIOR_RAZAO) {
-            MAIOR_RAZAO = razaoAreaPerimetro;
-            LARGURA_MAIOR_RAZAO = largura;
-            ALTURA_MAIOR_RAZAO = altura;
-        }
+        calcularRazao(largura, altura);
 
     }
 
@@ -39,14 +33,25 @@ public class Retangulo {
     }
 
     public float getArea() {
-        return largura * altura;
+        return this.largura * this.altura;
     }
 
     public float getPerimetro() {
-        return (largura * 2) + (altura * 2);
+        return (this.largura * 2) + (this.altura * 2);
+    }
+
+    public void calcularRazao(float largura, float altura) {
+        razaoAreaPerimetro = getArea() / getPerimetro();
+
+        if (razaoAreaPerimetro > MAIOR_RAZAO) {
+            MAIOR_RAZAO = razaoAreaPerimetro;
+            LARGURA_MAIOR_RAZAO = largura;
+            ALTURA_MAIOR_RAZAO = altura;
+        }
     }
 
     public static String imprimirRetanguloMaiorRazao() {
-        return "Retângulo com maior razão - Altura: " + LARGURA_MAIOR_RAZAO + ", Largura: " + ALTURA_MAIOR_RAZAO;
+        return "Retângulo com a maior razão área sobre perímero:\n - Razão: " + String.format("%.2f", MAIOR_RAZAO) + 
+        ", " + "Largura: "  + String.format("%.2f",LARGURA_MAIOR_RAZAO) + ", Altura: " + String.format("%.2f", ALTURA_MAIOR_RAZAO);
     }
 }
