@@ -8,34 +8,20 @@ public class Pessoa {
     private static int totalPessoas = 0;
 
     public Pessoa(String nome) {
-        if (nome.trim().isEmpty())  {
-            this.nome = "Fulano";
-        } else {
-            this.nome = nome;
-        }
+        this.verificarNome(nome);
+        this.idade = 0;
         totalPessoas++;
     }
 
     public Pessoa(int idade) {
-        if (idade >= 0) {
-            this.idade = idade;
-        } else {
-            this.idade = 0;
-        }
+        this.nome = "Fulano";
+        this.verificarIdade(idade);
         totalPessoas++;
     }
 
     public Pessoa(String nome, int idade) {
-        if (nome.trim().isEmpty())  {
-            this.nome = "Fulano";
-        } else {
-            this.nome = nome;
-        }
-        if (idade >= 0) {
-            this.idade = idade;
-        } else {
-            this.idade = 0;
-        }
+        this.verificarNome(nome);
+        this.verificarIdade(idade);
         totalPessoas++;
     }
 
@@ -44,12 +30,7 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-
-        if (nome.trim().isEmpty())  {
-            this.nome = "Fulano";
-        } else {
-            this.nome = nome;
-        }
+        verificarNome(nome);
     }
 
     public String getNome() {
@@ -57,12 +38,7 @@ public class Pessoa {
     }
 
     public void setIdade(int idade) {
-
-        if (idade >= 0) {
-            this.idade = idade;
-        } else {
-            this.idade = 0;
-        }
+        verificarIdade(idade);
     }
 
     public int getIdade() {
@@ -72,4 +48,21 @@ public class Pessoa {
     public void felizAniversario() {
         idade++;
     }
+
+    private void verificarIdade(int idade) {
+        if (idade >= 0) {
+            this.idade = idade;
+        } else {
+            this.idade = 0;
+        }
+    }
+
+    private void verificarNome(String nome) {
+        if (nome.trim().isEmpty())  {
+            this.nome = "Fulano";
+        } else {
+            this.nome = nome;
+        }
+    }
+
 }
