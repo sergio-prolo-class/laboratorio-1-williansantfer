@@ -3,60 +3,122 @@
  */
 package ifsc.poo;
 
+import java.util.Random;
+
 public class App {
 
     public static void main(String[] args) {
 
-        // Lampada
+        testarLampada();
+        testarPessoa();
+        testarRetangulo();
+        testarProduto();
+        testarNavio();
+    }
+
+    public static void testarLampada() {
+
+        System.out.println("-----------------------------");
+        System.out.println("   Teste da Classe Lampada   ");
+        System.out.println("-----------------------------");
 
         Lampada a = new Lampada();
         Lampada b = new Lampada(true);
 
-        System.out.println(a.verEstado());
-        System.out.println(b.verEstado());
-
+        a.ligar();
         b.desligar();
 
+        System.out.println(a.verEstado());
         System.out.println(b.verEstado());
+    }
 
-        // Pessoa
+    public static void testarPessoa() {
+
+        System.out.println("----------------------------");
+        System.out.println("   Teste da Classe Pessoa   ");
+        System.out.println("----------------------------");
 
         Pessoa p = new Pessoa("Alice", 22);
-
         Pessoa p2 = new Pessoa("Bruno", 25);
 
         p2.felizAniversario();
         p2.felizAniversario();
         p2.felizAniversario();
 
-        System.out.println(p.getIdade());
-        System.out.println(p2.getIdade());
+        System.out.println(p.getNome() + " tem " + p.getIdade() + " anos de idade.");
+        System.out.println(p2.getNome() + " tem " + p2.getIdade() + " anos de idade.");
 
         p.setIdade(-44);
 
-        System.out.println(p.getIdade());
+        System.out.println(p.getNome() + " tem " + p.getIdade() + " anos de idade.");
 
-        p2.setNome("         ");
+        p2.setNome("");
 
         System.out.println(p2.getNome());
 
-        Pessoa p3 = new Pessoa("", 15);
+        Pessoa p3 = new Pessoa("", 20);
 
         System.out.println(p3.getNome());
 
-        // Retangulo
-
-        Retangulo r = new Retangulo( 5, 4);
-
-        System.out.println(r.getArea());
-        System.out.println(r.getPerimetro());
-
-        Retangulo r3 = new Retangulo(5, 5);
-
-        Retangulo r2 = new Retangulo(3,3);
-
-        System.out.println(Retangulo.imprimirRetanguloMaiorRazao());
-
+        System.out.println(Pessoa.getTotal());
     }
 
+    public static void testarRetangulo() {
+
+        System.out.println("-------------------------------");
+        System.out.println("   Teste da Classe Retangulo   ");
+        System.out.println("-------------------------------");
+
+        Random r = new Random();
+
+        Retangulo re = new Retangulo( 5, 4);
+
+        System.out.println(re.getArea());
+        System.out.println(re.getPerimetro());
+
+        Retangulo r1 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r2 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r3 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r4 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r5 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r6 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r7 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r8 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r9 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        Retangulo r10 = new Retangulo(r.nextFloat(20), r.nextFloat(20));
+        
+        System.out.println(Retangulo.imprimirRetanguloMaiorRazao());
+    }
+
+    public static void testarProduto() {
+        System.out.println("-----------------------------");
+        System.out.println("   Teste da classe Produto   ");
+        System.out.println("-----------------------------");
+
+        Produto p = new Produto("Geladeira", 832);
+        Produto p2 = new Produto("Micro-ondas", 499);
+
+        System.out.println(p.getCodigo());
+        System.out.println(p2.getCodigo());
+
+        p.setTaxaDesconto(6);
+        p2.setTaxaDesconto(12);
+
+        System.out.println(p.getPreco());
+        System.out.println(p2.getPreco());
+
+        System.out.println(p.anunciar());
+    }
+
+    public static void testarNavio() {
+        System.out.println("---------------------------");
+        System.out.println("   Teste da classe Navio   ");
+        System.out.println("---------------------------");
+
+        Navio n = new Navio(5, "horizontal", "P");
+
+        System.out.println(n.getTamanho());
+        System.out.println(n.getOrientacao());
+        System.out.println(n.getLetra());
+    }
 }
