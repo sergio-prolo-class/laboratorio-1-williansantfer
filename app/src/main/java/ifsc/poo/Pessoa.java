@@ -5,16 +5,21 @@ public class Pessoa {
     private String nome;
     private int idade;
 
+    // Estáticos
     private static int totalPessoas = 0;
+
+    // Constantes
+    private static final String NOME_PADRAO = "Nome faltando";
+    private static final int IDADE_PADRAO = 0;
 
     public Pessoa(String nome) {
         this.verificarNome(nome);
-        this.idade = 0;
+        this.idade = IDADE_PADRAO;
         totalPessoas++;
     }
 
     public Pessoa(int idade) {
-        this.nome = "Fulano";
+        this.nome = NOME_PADRAO;
         this.verificarIdade(idade);
         totalPessoas++;
     }
@@ -25,7 +30,7 @@ public class Pessoa {
         totalPessoas++;
     }
 
-    public static int getTotal() {
+    public static int getTotalPessoas() {
         return totalPessoas;
     }
 
@@ -46,20 +51,20 @@ public class Pessoa {
     }
 
     public void felizAniversario() {
-        idade++;
+        this.idade++;
     }
 
     private void verificarIdade(int idade) {
         if (idade >= 0) {
             this.idade = idade;
         } else {
-            this.idade = 0;
+            this.idade = IDADE_PADRAO;
         }
     }
 
     private void verificarNome(String nome) {
         if (nome.trim().isEmpty())  {
-            this.nome = "Fulano";
+            this.nome = NOME_PADRAO;
         } else {
             this.nome = nome;
         }

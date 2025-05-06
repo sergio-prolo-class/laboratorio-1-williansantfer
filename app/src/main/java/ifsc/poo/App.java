@@ -60,7 +60,7 @@ public class App {
 
         System.out.println(p3.getNome());
 
-        System.out.println(Pessoa.getTotal());
+        System.out.println(Pessoa.getTotalPessoas());
     }
 
     public static void testarRetangulo() {
@@ -70,6 +70,25 @@ public class App {
         System.out.println("-------------------------------");
 
         Random r = new Random();
+
+            // --- Solução do professor
+
+            Random gerador = new Random();
+
+            for (int i = 0; i < 10; i++) {
+                new Retangulo (
+                    gerador.nextFloat(10),
+                    gerador.nextFloat(10)
+                );
+                Retangulo maior = Retangulo.getRetanguloMaior();
+                System.out.println(maior.getArea());
+                System.out.println(maior.getPerimetro());
+
+            }
+
+            // ---
+
+
 
         Retangulo re = new Retangulo( 5, 4);
 
